@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git([url: 'https://github.com/santhosh-git-23/helloworld-java.git', branch: 'master'])
+        git([url: 'https://github.com/santhosh-git-23/helloworld-java.git', branch: 'main'])
        }
     }
     stage ('jar executinon') {
