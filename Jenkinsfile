@@ -14,7 +14,7 @@ pipeline {
         sh 'javac HelloWorld.java'
         echo "Execution ..."
         sh 'java HelloWorld'
-        sh 'jar cvfe HelloWorld.jar HelloWorld *.class
+        sh 'jar cvfe HelloWorld.jar HelloWorld *.class'
         echo "============================"
         sh 'java -jar HelloWorld.jar'
         echo "============================"
