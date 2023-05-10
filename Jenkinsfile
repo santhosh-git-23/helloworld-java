@@ -1,21 +1,24 @@
-pipeline{
-    agent any
-
-    tools {
-         maven 'maven'
-         jdk 'java'
+pipeline {
+  agent {
+    label "test"
+  }
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git([url: 'https://github.com/santhosh-git-23/hello-world-maven.git', branch: 'master'])
+       }
     }
-
-    stages{
-        stage('checkout'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/sreenivas449/java-hello-world-with-maven.git']]])
-            }
-        }
-        stage('build'){
-            steps{
-               bat 'mvn package'
-            }
-        }
+    stage ('jar executinon') {
+      steps{
+        echo "Compiling ... "
+        sh 'javac HelloWorld.java'
+        echo "Execution ..."
+        sh 'java HelloWorld'
+        sh 'jar cvfe HelloWorld.jar HelloWorld *.class
+        echo "============================"
+        sh 'java -jar HelloWorld.jar'
+        echo "============================"
+      }
     }
+  }
 }
