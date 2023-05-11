@@ -2,6 +2,9 @@ pipeline {
   agent {
     label "test"
   }
+  tools{
+    jdk 'jdk'
+  }
   stages {
     stage('Cloning Git') {
       steps {
