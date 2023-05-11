@@ -13,14 +13,14 @@ pipeline {
     }
     stage ('jar execution') {
       steps{
-        //echo "Compiling ... "
-        //sh 'javac HelloWorld.java'
-        //echo "Execution ..."
-        //sh 'java HelloWorld'
-        sh 'jar cvfe HelloWorld.jar HelloWorld *.class'
-        echo "============================"
-        sh 'java -jar HelloWorld.jar'
-        echo "============================"
+        echo "Compiling ... "
+        sh 'javac HelloWorld.java'
+        echo "Execution ..."
+        sh 'java HelloWorld'
+//         sh 'jar cvfe HelloWorld.jar HelloWorld *.class'
+//         echo "============================"
+//         sh 'java -jar HelloWorld.jar'
+//         echo "============================"
       }
     }
   }
